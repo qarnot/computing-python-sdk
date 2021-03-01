@@ -340,6 +340,7 @@ class Bucket(Storage):
             files = map(_util.decode, files)
 
             remote_loc = dirpath.replace(local, remote, 1)
+            remote_loc = remote_loc.replace('\\', '/')
             for filename in files:
                 self.add_file(os.path.join(dirpath, filename),
                               posixpath.join(remote_loc, filename))
